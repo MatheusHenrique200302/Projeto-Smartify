@@ -56,7 +56,7 @@ export class FilmesComponent implements OnInit {
   }
 
   openDetails(id:Number){
-    this.router.navigateByUrl('/filmes/detalhes/'+id)
+    this.router.navigateByUrl('detalhes/'+id)
   }
 
 }

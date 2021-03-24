@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetalhesComponent } from './detalhes/detalhes.component';
+import {  DetalhesFilmesComponent } from './detalhes/detalhesFilmes.component';
 import { FilmesComponent } from './filmes/filmes.component';
 import { SeriesComponent } from './series/series.component';
 
@@ -13,13 +13,12 @@ const routes: Routes = [
   {
     path: 'filmes',
     component: FilmesComponent,
-    children: [
-      {
-        path: 'detalhes/:id',
-        component: DetalhesComponent,
-        pathMatch: 'full',
-      },
-    ],
+   
+  },
+  {
+    path: 'detalhes/:id',
+    component: DetalhesFilmesComponent,
+    pathMatch: 'full',
   },
   {
     path: 'series',

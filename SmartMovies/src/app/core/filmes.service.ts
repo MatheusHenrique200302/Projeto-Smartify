@@ -17,7 +17,7 @@ export class FilmesService {
     let httpParams = new HttpParams();
 
     httpParams = httpParams.set('page',pagina.toString());
-    console.log(httpParams.get('page'));
+   
     return this.htpp.get<Filme[]>(this.url,{params: httpParams}).pipe(map((res:any)=> res.results));
   }
 }

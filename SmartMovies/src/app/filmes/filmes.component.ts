@@ -33,12 +33,12 @@ export class FilmesComponent implements OnInit {
     this.FilmeService
     .getFilmes(filmPagina.toString()).subscribe((res: Filme[])=>{
       this.Filmes = res;
-      console.log(this.Filmes);
+    
     });
   }
 
   proxPagina(){
-    console.log("próxima!!!");
+   
   this.pagina++;
   this.Filmes = [];
     this.ListarFilmes(this.pagina);
@@ -48,7 +48,7 @@ export class FilmesComponent implements OnInit {
     if(this.pagina == 1){
       return
     }else{
-      console.log("voltar!!!");
+     
       this.pagina--;
       this.Filmes = [];
         this.ListarFilmes(this.pagina);

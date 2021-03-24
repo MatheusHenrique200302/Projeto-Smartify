@@ -15,7 +15,7 @@ const routes: Routes = [
     component: FilmesComponent,
     children: [
       {
-        path: '/detalhes/:id',
+        path: 'detalhes/:id',
         component: DetalhesComponent,
         pathMatch: 'full',
       },

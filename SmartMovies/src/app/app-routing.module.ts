@@ -5,17 +5,17 @@ import { SeriesComponent } from './series/series.component';
 
 const routes: Routes = [
 {
-  path:'/',
+  path:'',
   redirectTo: "filmes",
   pathMatch: 'full'
   
 },
 {
-  path: '/filmes',
+  path: 'filmes',
   component: FilmesComponent
 },
 {
-  path: '/series',
+  path: 'series',
   component: SeriesComponent
 }
 

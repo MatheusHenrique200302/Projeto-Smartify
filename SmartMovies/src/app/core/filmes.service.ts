@@ -1,7 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+
 import { Filme } from '../shared/models/filmes';
+import { map } from "rxjs/operators";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,11 +11,13 @@ import { Filme } from '../shared/models/filmes';
 export class FilmesService {
   constructor(private htpp: HttpClient) {}
 
-  url = 'localhost:3000/filmes';
+  url = 'http://localhost:3000/filmes';
 
   getFilmes(pagina: number): Observable<Filme[]> {
     let httpParams = new HttpParams();
-    httpParams.set('page', pagina.toString());
-    return this.htpp.get<Filme[]>(this.url);
+
+    httpParams = httpParams.set('page',pagina.toString());
+    console.log(httpParams.get('page'));
+    return this.htpp.get<Filme[]>(this.url,{params: httpParams}).pipe(map((res:any)=> res.results));
   }
 }

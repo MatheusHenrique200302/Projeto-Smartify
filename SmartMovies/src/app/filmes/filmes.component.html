@@ -19,7 +19,7 @@
 
   <div class="row">
     <div *ngFor="let filmesdata of Filmes " class="col-sm-12 col-md-4 col-lg-3 pb-3">
-      <div class="card " >
+      <div class="card" (click)="openDetails(filmesdata.id)">
         <img src={{filmesdata.backdrop_path}} loading="lazy" class="card-img-top img-fluid" alt="..." />
         <div class="card-body overflow-hidden pb-4" style="height: 20rem;">
           <h5 class="card-title">{{filmesdata.title}}</h5>
@@ -34,15 +34,15 @@
   <nav aria-label="Page navigation example" class="mt-1 pt-2">
     <ul class="pagination justify-content-center">
       <li class="page-item">
-        <button class="page-link text-dark">
+        <button class="page-link text-dark" (click)="voltarPagina()">
           <i class="fas fa-chevron-left"></i>
         </button>
       </li>
       <li class="page-item">
-        <span class="page-link disabled text-dark">1</span>
+        <span class="page-link disabled text-dark">{{pagina}}</span>
       </li>
       <li class="page-item">
-        <button class="page-link text-dark">
+        <button class="page-link text-dark"  (click)="proxPagina()">
           <i class="fas fa-chevron-right"></i>
         </button>
       </li>

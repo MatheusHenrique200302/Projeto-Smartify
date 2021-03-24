@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FilmesService } from '../core/filmes.service';
 import { Filme } from '../shared/models/filmes';
 
@@ -14,7 +15,10 @@ import { Filme } from '../shared/models/filmes';
   styleUrls: ['./filmes.component.css'],
 })
 export class FilmesComponent implements OnInit {
-  constructor(private FilmeService: FilmesService) {}
+  constructor(
+    private FilmeService: FilmesService,
+    private router : Router
+    ) {}
 
  
   Filmes: Filme[] = [];
@@ -49,7 +53,10 @@ export class FilmesComponent implements OnInit {
       this.Filmes = [];
         this.ListarFilmes(this.pagina);
     }
-   
+  }
+
+  openDetails(id:Number){
+    this.router.navigateByUrl('/filmes/detalhes/'+id)
   }
 
 }

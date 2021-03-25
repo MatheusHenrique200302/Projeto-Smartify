@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FilmesComponent } from './filmes/filmes.component';
 import { SeriesComponent } from './series/series.component';
+import { DetalhesComponent } from './shared/components/detalhes/detalhes.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'detalhes/:id',
-    
+    component: DetalhesComponent,
     pathMatch: 'full',
   },
   {

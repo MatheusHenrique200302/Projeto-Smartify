@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilmesComponent } from './filmes/filmes.component';
 import { SeriesComponent } from './series/series.component';
+import { DetalhesComponent } from './shared/components/detalhes/detalhes.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { SeriesComponent } from './series/series.component';
     AppComponent,
     FilmesComponent,
     SeriesComponent,
+    DetalhesComponent,
   
   ],
   imports: [

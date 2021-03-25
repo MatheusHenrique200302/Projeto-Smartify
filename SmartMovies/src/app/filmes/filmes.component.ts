@@ -33,7 +33,7 @@ export class FilmesComponent implements OnInit {
     this.FilmeService
     .getFilmes(filmPagina.toString()).subscribe((res: Filme[])=>{
       this.Filmes = res;
-    
+      console.log(this.Filmes);
     });
   }
 
@@ -56,7 +56,7 @@ export class FilmesComponent implements OnInit {
   }
 
   openDetails(id:Number){
-    this.router.navigateByUrl('detalhes/'+id)
+    this.router.navigateByUrl('detalhes/filme/'+id)
   }
 
 }

@@ -1,0 +1,121 @@
+<div class="jumbotron text-center mb-0">
+  <h1>Bem-vindos a Smart Movies!</h1>
+  <span class="text-muted"
+    >Aqui você encontra o melhor conteúdo de Filmes e Séries!</span
+  >
+</div>
+<div class="row no-gutters pt-1">
+  <div class="col-sm-6 col-md-6 col-lg-6 pb-1 btn-padding-r">
+    <button
+      routerLink="/filmes"
+      type="button"
+      class="btn btn-light btn-block shadow-sm"
+    >
+      <span class="text-primary">Filmes</span>
+    </button>
+  </div>
+  <div class="col-sm-6 col-md-6 col-lg-6 btn-padding-l">
+    <button
+      routerLink="/series"
+      type="button"
+      class="btn btn-light btn-block shadow-sm"
+    >
+      <span class="text-primary">Séries</span>
+    </button>
+  </div>
+</div>
+<div class="d-flex justify-content-center pt-5 mt-5" *ngIf="isLoading">
+  <div
+    class="spinner-border text-primary"
+    style="width: 10rem; height: 10rem"
+  ></div>
+</div>
+<div *ngIf="!isLoading">
+  <div class="container">
+    <nav aria-label="Page navigation example" class="mt-1 pt-2">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <button class="page-link text-dark" (click)="voltarPagina()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+        </li>
+        <li class="page-item">
+          <span class="page-link disabled text-dark">{{ pagina }}</span>
+        </li>
+        <li class="page-item">
+          <button class="page-link text-dark" (click)="proxPagina()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div
+        *ngFor="let seriesdata of series"
+        class="col-sm-12 col-md-4 col-lg-3 pb-3"
+      >
+        <div
+          class="card text-center text-justify"
+          (click)="openDetails(seriesdata.id)"
+        >
+          <img
+            src="{{ seriesdata.poster_path }}"
+            loading="lazy"
+            height="200"
+            width="100"
+            class="card-img-top img-fluid"
+            alt="..."
+          />
+          <div class="card-body overflow-hidden pb-4" style="height: 20rem">
+            <h5 class="card-title">{{ seriesdata.name }}</h5>
+            <p class="card-text max-lines text-break">
+              {{ seriesdata.overview }}
+            </p>
+            <div *ngIf="seriesdata.overview">[...]</div>
+            <div *ngIf="!seriesdata.overview">
+              Não foi possivel receber informações
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-12">
+                <b
+                  >Primeira vez ao ar:
+                  {{ seriesdata.first_air_date | date: "dd/MM/Y" }}</b
+                >
+              </div>
+              <div class="col-12">
+                <span
+                  ><b>Nota:</b><b>{{ seriesdata.vote_average }}</b
+                  ><i class="fas fa-star" style="color: yellow"></i
+                ></span>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary">Ver mais detalhes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav aria-label="Page navigation example" class="mt-1 pt-2">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <button class="page-link text-dark" (click)="voltarPagina()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+        </li>
+        <li class="page-item">
+          <span class="page-link disabled text-dark">{{ pagina }}</span>
+        </li>
+        <li class="page-item">
+          <button class="page-link text-dark" (click)="proxPagina()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

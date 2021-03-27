@@ -13,35 +13,35 @@
     height: 100%;
     background: rgba(81, 84, 67,.9);
 } */
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.fsection{
-    width: 100%;
-    height: 80vh;
-    /* background: url('https://image.tmdb.org/t/p/original/f5F4cRhQdUbyVbB5lTNCwUzD6BP.jpg'); */
-    
-    position: relative;
-    overflow: hidden;
+.fsection {
+  width: 100%;
+  height: 100vh;
+  /* background: url('https://image.tmdb.org/t/p/original/f5F4cRhQdUbyVbB5lTNCwUzD6BP.jpg'); */
+
+  position: relative;
+  overflow: hidden;
 }
-@media (max-width: 985px){
-    .fsection{
-        /* color: red; */
-        height: 450vh;
-        background-position: center;
-    }
+@media (max-width: 985px) {
+  .fsection {
+    /* color: red; */
+    height: 450vh;
+    background-position: center;
+  }
 }
-.overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(81, 84, 67,0.9);
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(81, 84, 67, 0.9);
 }
 
-.cast-name{
-    line-height:0.6rem;
+.cast-name {
+  line-height: 0.6rem;
 }

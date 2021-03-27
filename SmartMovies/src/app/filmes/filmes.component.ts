@@ -3,12 +3,6 @@ import { Router } from '@angular/router';
 import { FilmesService } from '../core/filmes.service';
 import { Filme } from '../shared/models/filmes';
 
-// interface requestData{
-//   page?: Number,
-//   results?: Array<Object>
-// }
-
-
 @Component({
   selector: 'app-filmes',
   templateUrl: './filmes.component.html',
@@ -22,10 +16,11 @@ export class FilmesComponent implements OnInit {
 
  
   Filmes: Filme[] = [];
-
+  isLoading: boolean = true;
   pagina: number = 1;
 
   ngOnInit(): void {
+    this.isLoading = true
     this.ListarFilmes();
   }
 
@@ -34,11 +29,12 @@ export class FilmesComponent implements OnInit {
     .getFilmes(filmPagina.toString()).subscribe((res: Filme[])=>{
       this.Filmes = res;
       console.log(this.Filmes);
+      this.isLoading = false
     });
   }
 
   proxPagina(){
-   
+    this.isLoading = true
   this.pagina++;
   this.Filmes = [];
     this.ListarFilmes(this.pagina);
@@ -48,7 +44,7 @@ export class FilmesComponent implements OnInit {
     if(this.pagina == 1){
       return
     }else{
-     
+      this.isLoading = true
       this.pagina--;
       this.Filmes = [];
         this.ListarFilmes(this.pagina);

@@ -1,8 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 import { Filme } from '../shared/models/filmes';
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -17,22 +16,26 @@ export class FilmesService {
   getFilmes(pagina: number): Observable<Filme[]> {
     let httpParams = new HttpParams();
 
-    httpParams = httpParams.set('page',pagina.toString());
-   
-    return this.htpp.get<Filme[]>(this.url1,{params: httpParams}).pipe(map((res:any)=> res.results));
+    httpParams = httpParams.set('page', pagina.toString());
+
+    return this.htpp
+      .get<Filme[]>(this.url1, { params: httpParams })
+      .pipe(map((res: any) => res.results));
   }
 
-  getFilmesDetalhes(id:number):any{
-    let newurl = this.url2+id;
-
+  getFilmesDetalhes(id: number): any {
+    let newurl = this.url2 + id;
     return this.htpp.get<Filme[]>(newurl);
   }
 
-  getElencoDetalhes(id:number):any{{
-    let newurl = this.url2+id;
-
-    return this.htpp.get<any[]>(newurl).pipe(map((res:any) => res.credits.cast));
+  getElencoDetalhes(id: number): any {
+    let newurl = this.url2 + id;
+    return this.htpp
+      .get<any[]>(newurl)
+      .pipe(map((res: any) => res.credits.cast));
   }
-
+  getGender(id: number): any {
+    let newurl = this.url2 + id;
+    return this.htpp.get<any[]>(newurl).pipe(map((res: any) => res.genres));
   }
 }

@@ -1,4 +1,5 @@
 export interface Serie {
+ id:Number,
  backdrop_path: String,
  first_air_date: Date,
  genre_ids: Number[],
